@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SDG 4: Quality Education — Interactive Site</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- NAVBAR -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <div class="brand"><i class="fa-solid fa-graduation-cap"></i> <span>Samson Education platform</span></div>
+      <div class="menu" id="menu-desktop">
+        <a href="#home">Home</a>
+        <a href="#resources">Resources</a>
+        <a href="#digital">Digital Skills</a>
+        <a href="#forums">Mentorship & Forums</a>
+        <a href="#scholarships">Scholarships</a>
+        <a href="#tools">Tools</a>
+        <button id="toggle-theme" class="btn btn-secondary" title="Toggle theme"><i class="fa-solid fa-circle-half-stroke"></i><span style="margin-left:.25rem">Theme</span></button>
+        <button id="lang-btn" class="btn btn-secondary" title="Switch language"><i class="fa-solid fa-language"></i><span style="margin-left:.25rem" id="lang-label">EN</span></button>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="open menu"><i class="fa-solid fa-bars"></i></button>
+    </div>
+    <div id="menu-mobile" class="mobile-menu">
+      <a href="#home">Home</a>
+      <a href="#resources">Resources</a>
+      <a href="#digital">Digital Skills</a>
+      <a href="#forums">Mentorship & Forums</a>
+      <a href="#scholarships">Scholarships</a>
+      <a href="#tools">Tools</a>
+      <div style="display:flex;gap:.5rem; margin-top:.5rem">
+        <button id="toggle-theme-m" class="btn btn-secondary" style="width:100%"><i class="fa-solid fa-circle-half-stroke"></i> Theme</button>
+        <button id="lang-btn-m" class="btn btn-secondary" style="width:100%"><i class="fa-solid fa-language"></i> <span id="lang-label-m">EN</span></button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header id="home" class="hero">
+    <div class="container">
+      <div>
+        <span class="badge"><i class="fa-solid fa-bullseye"></i> SDG 4: Quality Education</span>
+        <h1 style="margin:.6rem 0 0.2rem">Inclusive & Equitable Education for All</h1>
+        <p class="muted">Free learning resources, digital skills, mentorship, and opportunities — designed for low-bandwidth communities.</p>
+        <div class="cta">
+          <a href="#resources" class="btn btn-primary"><i class="fa-solid fa-book"></i> Start Learning</a>
+          <a href="#about" class="btn btn-secondary"><i class="fa-solid fa-circle-info"></i> About</a>
+        </div>
+      </div>
+      <div class="card" style="text-align:center">
+        <i class="fa-solid fa-laptop-code" style="font-size:3rem;color:var(--accent)"></i>
+        <h3>Low‑Data, Mobile‑Friendly</h3>
+        <p class="muted">Optimized for underserved areas. Works on basic smartphones, caches progress locally.</p>
+        <div class="divider"></div>
+        <div class="pill"><i class="fa-solid fa-wifi"></i> Offline-friendly</div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ABOUT (from proposal) -->
+    <section id="about" class="container">
+      <h2>Introduction</h2>
+      <p>The platform advances UN SDG 4 by providing an accessible hub for learners, teachers, parents and stakeholders. It tackles gaps in information, resources and digital access with an open, inclusive design.</p>
+      <div class="grid grid-3">
+        <div class="card"><h3>Objectives</h3><ul>
+          <li>Create a user-friendly platform focused on SDG 4.</li>
+          <li>Offer free learning materials and digital skills training.</li>
+          <li>Connect educators, learners and policymakers.</li>
+          <li>Raise awareness on inclusive education.</li></ul></div>
+        <div class="card"><h3>Target Audience</h3><ul>
+          <li>Refugees & vulnerable learners</li>
+          <li>Teachers & educators</li>
+          <li>Parents & guardians</li>
+          <li>NGOs & policymakers</li></ul></div>
+        <div class="card"><h3>Outcomes</h3><ul>
+          <li>Increased access to quality resources</li>
+          <li>Improved digital literacy</li>
+          <li>Stronger learning networks</li>
+          <li>Direct contribution to SDG 4</li></ul></div>
+      </div>
+    </section>
+
+    <!-- RESOURCES -->
+    <section id="resources" class="container">
+      <h2>Learning Resources</h2>
+      <p class="muted">Filter by type and add quick bookmarks. All bookmarks are saved in your browser.</p>
+      <div class="card">
+        <div style="display:flex;gap:.5rem;flex-wrap:wrap;align-items:center">
+          <label>Filter:</label>
+          <select id="filter-type">
+            <option value="all">All</option>
+            <option value="ebook">E‑books</option>
+            <option value="video">Videos</option>
+            <option value="quiz">Quizzes</option>
+          </select>
+          <span class="pill" id="bookmark-count">0 bookmarks</span>
+        </div>
+        <div class="grid grid-3" id="resource-grid" style="margin-top:1rem"></div>
+      </div>
+    </section>
+
+    <!-- DIGITAL SKILLS -->
+    <section id="digital" class="container">
+      <h2>Digital Skills Hub</h2>
+      <div class="grid grid-3">
+        <div class="card"><h3>Foundations</h3><p class="muted">Basic computer use, safety & privacy, productivity tools.</p></div>
+        <div class="card"><h3>Web & Code</h3><p class="muted">HTML5, CSS3, JavaScript — start building real projects.</p></div>
+        <div class="card"><h3>Career Skills</h3><p class="muted">Portfolio, job search, remote work readiness.</p></div>
+      </div>
+    </section>
+
+    <!-- FORUMS / MENTORSHIP (mock) -->
+    <section id="forums" class="container">
+      <h2>Mentorship & Forums</h2>
+      <div class="card">
+        <form id="post-form" style="display:flex;gap:.5rem;flex-wrap:wrap">
+          <input id="post-input" placeholder="Share a tip or ask a question…" style="flex:1;min-width:220px;padding:.6rem .7rem;border-radius:10px;border:1px solid var(--ring)">
+          <button class="btn btn-primary" type="submit"><i class="fa-solid fa-paper-plane"></i> Post</button>
+        </form>
+        <div class="divider"></div>
+        <div id="posts" class="grid" style="gap:.75rem"></div>
+      </div>
+    </section>
+
+    <!-- SCHOLARSHIPS -->
+    <section id="scholarships" class="container">
+      <h2>Scholarships & Opportunities</h2>
+      <div id="sch-grid" class="grid grid-3"></div>
+    </section>
+
+    <!-- TOOLS: simple quiz & progress -->
+    <section id="tools" class="container">
+      <h2>Interactive Tools</h2>
+      <div class="grid grid-2">
+        <div class="card" id="quiz-card">
+          <h3>Quick Quiz: Web Basics</h3>
+          <div id="quiz"></div>
+        </div>
+        <div class="card">
+          <h3>Learning Progress</h3>
+          <p class="muted">Track modules you've completed. Data stays on your device.</p>
+          <div class="grid" id="progress-grid"></div>
+          <div class="divider"></div>
+          <button id="reset-progress" class="btn btn-secondary"><i class="fa-solid fa-rotate-left"></i> Reset Progress</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="container" style="padding-bottom:3rem">
+    <div class="divider"></div>
+    <div class="links">
+      <div><strong>SDG 4 Platform</strong><p class="muted">Promoting inclusive, equitable quality education and lifelong learning.</p></div>
+      <div>
+        <strong>Quick Links</strong>
+        <ul>
+          <li><a href="#resources">Resources</a></li>
+          <li><a href="#digital">Digital Skills</a></li>
+          <li><a href="#forums">Forums</a></li>
+          <li><a href="#scholarships">Scholarships</a></li>
+        </ul>
+      </div>
+      <div>
+        <strong>Support</strong>
+        <ul>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">Privacy</a></li>
+          <li><a href="#">Terms</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="muted" style="margin-top:1rem">© 2025 SDG 4 Education Platform</p>
+  </footer>
+
+  <!-- React & Babel (for JSX in a single file demo) -->
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <script type="text/babel">
+    // --- Simple i18n (EN/SW) ---
+    const strings = {
+      en: {
+        bookmark: 'Add Bookmark', added: 'Bookmarked', noPosts: 'No posts yet — be the first!'
+      },
+      sw: {
+        bookmark: 'Hifadhi Alamisho', added: 'Imehifadhiwa', noPosts: 'Hakuna chapisho bado — anza wewe!'
+      }
+    };
+
+    // --- Resource Card (React) ---
+    function ResourceCard({item, lang, onBookmark}){
+      const [saved,setSaved] = React.useState(item.bookmarked || false);
+      const label = saved ? strings[lang].added : strings[lang].bookmark;
+      return (
+        <div className="card">
+          <div style={{display:'flex',justifyContent:'space-between',alignItems:'center'}}>
+            <div style={{display:'flex',alignItems:'center',gap:'.6rem'}}>
+              <i className={`fa-solid ${item.icon}`} style={{color:'var(--brand)'}}></i>
+              <div>
+                <h3 style={{margin:0}}>{item.title}</h3>
+                <small className="muted">{item.type.toUpperCase()}</small>
+              </div>
+            </div>
+            <button className="btn btn-secondary" onClick={()=>{setSaved(true);onBookmark(item.id)}}>{label}</button>
+          </div>
+          <p className="muted" style={{marginTop:'.6rem'}}>{item.desc}</p>
+        </div>
+      );
+    }
+
+    // --- Quiz Component ---
+    function Quiz(){
+      const q = {
+        text:'Which language is used to style web pages?',
+        options:['HTML','CSS','SQL','Python'],
+        answer:1
+      };
+      const [picked,setPicked]=React.useState(null);
+      return (
+        <div>
+          <div className="quiz-q">{q.text}</div>
+          <div className="quiz-opts">
+            {q.options.map((opt,idx)=>{
+              const cls = picked==null? '' : (idx===q.answer? 'correct':'wrong');
+              return (
+                <button key={idx} className={picked==null? '' : cls} onClick={()=>setPicked(idx)}>{opt}</button>
+              )
+            })}
+          </div>
+          {picked!=null && (
+            <div className="pill" style={{marginTop:'.5rem'}}>
+              {picked===q.answer? '✅ Correct!' : '❌ Not quite — try again!'}
+            </div>
+          )}
+        </div>
+      )
+    }
+
+    // --- Progress tiles ---
+    function Progress(){
+      const modules=[
+        {id:'m1', title:'Intro to the Web'},
+        {id:'m2', title:'HTML5 Basics'},
+        {id:'m3', title:'CSS3 Styling'},
+        {id:'m4', title:'JavaScript Essentials'}
+      ];
+      const [done,setDone]=React.useState(()=> new Set(JSON.parse(localStorage.getItem('progress')||'[]')));
+      const toggle=(id)=>{
+        const next = new Set(done);
+        if(next.has(id)) next.delete(id); else next.add(id);
+        setDone(next);
+        localStorage.setItem('progress', JSON.stringify([...next]));
+      };
+      const reset=()=>{setDone(new Set()); localStorage.removeItem('progress');}
+      React.useEffect(()=>{
+        const btn=document.getElementById('reset-progress');
+        btn?.addEventListener('click', reset);
+        return ()=> btn?.removeEventListener('click', reset);
+      },[]);
+      return (
+        <div className="grid" style={{gap:'.6rem'}}>
+          {modules.map(m=> (
+            <label key={m.id} className="card" style={{display:'flex',alignItems:'center',gap:'.6rem',cursor:'pointer'}}>
+              <input type="checkbox" checked={done.has(m.id)} onChange={()=>toggle(m.id)} />
+              <span>{m.title}</span>
+            </label>
+          ))}
+        </div>
+      )
+    }
+
+    // --- Render dynamic sections ---
+    const appState = {
+      lang: 'en',
+      resources: [
+        {id:1,type:'ebook', title:'Intro to HTML5', desc:'Beginner guide with examples', icon:'fa-book'},
+        {id:2,type:'video', title:'CSS Layouts', desc:'Flexbox & Grid crash course', icon:'fa-video'},
+        {id:3,type:'quiz', title:'JS Fundamentals Quiz', desc:'Test your basics', icon:'fa-clipboard-check'},
+        {id:4,type:'ebook', title:'Digital Safety', desc:'Stay safe online', icon:'fa-shield-halved'},
+        {id:5,type:'video', title:'Build a Portfolio', desc:'Showcase your work', icon:'fa-chalkboard-user'}
+      ]
+    };
+
+    function renderResources(filter='all'){
+      const root = ReactDOM.createRoot(document.getElementById('resource-grid'));
+      const saved = new Set(JSON.parse(localStorage.getItem('bookmarks')||'[]'));
+      const lang = appState.lang;
+      const list = appState.resources.filter(r=> filter==='all' ? true : r.type===filter)
+        .map(r=> ({...r, bookmarked:saved.has(r.id)}));
+      const onBookmark=(id)=>{
+        const next = new Set(JSON.parse(localStorage.getItem('bookmarks')||'[]'));
+        next.add(id);
+        localStorage.setItem('bookmarks', JSON.stringify([...next]));
+        updateBookmarkCount();
+      }
+      root.render(
+        <>
+          {list.map(item => <ResourceCard key={item.id} item={item} lang={lang} onBookmark={onBookmark} />)}
+        </>
+      );
+    }
+
+    function updateBookmarkCount(){
+      const count = JSON.parse(localStorage.getItem('bookmarks')||'[]').length;
+      document.getElementById('bookmark-count').textContent = `${count} bookmark${count===1?'':'s'}`;
+    }
+
+    function renderScholarships(){
+      const data=[
+        {title:'Global Education Grant', deadline:'Dec 2025'},
+        {title:'Digital Skills Certification', deadline:'Rolling'},
+        {title:'Teacher Training Initiative', deadline:'Jan 2026'}
+      ];
+      const grid = document.getElementById('sch-grid');
+      grid.innerHTML='';
+      data.forEach(d=>{
+        const el=document.createElement('div');
+        el.className='card';
+        el.innerHTML=`<h3>${d.title}</h3><p class="muted">Deadline: ${d.deadline}</p><button class="btn btn-primary">Apply</button>`;
+        grid.appendChild(el);
+      })
+    }
+
+    function renderForum(){
+      const postsWrap = document.getElementById('posts');
+      const items = JSON.parse(localStorage.getItem('posts')||'[]');
+      postsWrap.innerHTML='';
+      if(items.length===0){
+        const empty=document.createElement('div');
+        empty.className='muted';
+        empty.textContent = strings[appState.lang].noPosts;
+        postsWrap.appendChild(empty);
+      } else {
+        items.forEach(p=>{
+          const card=document.createElement('div');
+          card.className='card';
+          card.innerHTML=`<div style="display:flex;justify-content:space-between;align-items:center"><strong>${p.text}</strong><small class="muted">${new Date(p.time).toLocaleString()}</small></div>`;
+          postsWrap.appendChild(card);
+        })
+      }
+    }
+
+    // --- Event wiring ---
+    document.addEventListener('DOMContentLoaded', ()=>{
+      // Filters
+      const filter=document.getElementById('filter-type');
+      filter.addEventListener('change', ()=> renderResources(filter.value));
+
+      // Theme
+      const setTheme=(dark)=>{
+        if(dark){document.documentElement.classList.add('dark'); localStorage.setItem('theme','dark');}
+        else {document.documentElement.classList.remove('dark'); localStorage.setItem('theme','light');}
+      }
+      const initTheme = localStorage.getItem('theme')||'light';
+      setTheme(initTheme==='dark');
+      document.getElementById('toggle-theme').addEventListener('click',()=> setTheme(!document.documentElement.classList.contains('dark')));
+      document.getElementById('toggle-theme-m').addEventListener('click',()=> setTheme(!document.documentElement.classList.contains('dark')));
+
+      // Language
+      const setLang=(lng)=>{appState.lang=lng; document.getElementById('lang-label').textContent=lng.toUpperCase(); document.getElementById('lang-label-m').textContent=lng.toUpperCase(); renderForum(); renderResources(document.getElementById('filter-type').value)}
+      document.getElementById('lang-btn').addEventListener('click',()=> setLang(appState.lang==='en'?'sw':'en'));
+      document.getElementById('lang-btn-m').addEventListener('click',()=> setLang(appState.lang==='en'?'sw':'en'));
+
+      // Mobile menu
+      const ham=document.getElementById('hamburger');
+      const mob=document.getElementById('menu-mobile');
+      ham.addEventListener('click',()=> mob.classList.toggle('open'));
+
+      // Forum submit
+      const form=document.getElementById('post-form');
+      form.addEventListener('submit', (e)=>{
+        e.preventDefault();
+        const input=document.getElementById('post-input');
+        const text=input.value.trim(); if(!text) return;
+        const list = JSON.parse(localStorage.getItem('posts')||'[]');
+        list.unshift({text, time:Date.now()});
+        localStorage.setItem('posts', JSON.stringify(list));
+        input.value='';
+        renderForum();
+      });
+
+      // Initial renders
+      renderResources('all');
+      updateBookmarkCount();
+      renderScholarships();
+      renderForum();
+
+      // Mount React widgets
+      const quizRoot = ReactDOM.createRoot(document.getElementById('quiz'));
+      quizRoot.render(<Quiz/>);
+
+      const progRoot = ReactDOM.createRoot(document.getElementById('progress-grid'));
+      progRoot.render(<Progress/>);
+    });
+  </script>
+</body>
+</html>
